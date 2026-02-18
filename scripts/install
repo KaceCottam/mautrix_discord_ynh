@@ -24,9 +24,9 @@ synapse_version=$(yunohost app info $synapse_instance | grep -oP "version:\s*\K.
 #=================================================
 
 # Die if Synapse is too outdated (1.22.0 is required for ephemeral_events)
-if dpkg --compare-versions $synapse_version lt 1.22.0; then
-  ynh_die --message="Unsupported Synapse version. Please upgrade."
-fi
+# if dpkg --compare-versions $synapse_version lt 1.22.0; then
+#   ynh_die --message="Unsupported Synapse version. Please upgrade."
+# fi
 
 appserviceid=$app
 if dpkg --compare-versions $synapse_version ge 1.97.0; then
