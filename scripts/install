@@ -92,11 +92,11 @@ set__listuser
 set__listrelay
 set__listadmin
 
-$install_dir/$APP_BIN -g -c $install_dir/config.yaml -r /etc/matrix-$synapse_instance/app-service/$app.yaml
+$install_dir/$APP_BIN -g -c $install_dir/config.yaml -r $install_dir/registration.yaml
 $synapse_install_dir/update_synapse_for_appservice.sh || ynh_print_warn --message="Synapse can't restart with the appservice configuration"
 
 chown -R $app:$app "$install_dir"
-ynh_store_file_checksum --file="/etc/matrix-$synapse_instance/app-service/$app.yaml"
+ynh_store_file_checksum --file="$install_dir/registration.yaml"
 ynh_store_file_checksum --file="$install_dir/config.yaml"
 
 #=================================================

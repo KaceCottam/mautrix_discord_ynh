@@ -29,7 +29,7 @@ ynh_remove_systemd_config
 
 ynh_remove_logrotate
 
-ynh_secure_remove --file="/etc/matrix-$synapse_instance/app-service/$app.yaml"
+ynh_secure_remove --file="$install_dir/registration.yaml"
 $synapse_install_dir/update_synapse_for_appservice.sh || ynh_print_warn --message="Synapse can't restart with the appservice configuration"
 
 
